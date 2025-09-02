@@ -2,10 +2,9 @@ Devcontainer setup for Eigen and Matplotlib-cpp with UV
 
 
 p11project folder is used for UV management of system python
-    once devcontainer is running we can demo via:
+    once devcontainer is running we can demo via [in project root]:
 
-        cd ../p11project/
-        uv run test.py
+        uv run ./p11project/test.py
 
     UV will enforce sync of pyproject.toml in this folder with system python packages
     If this were a deployable container we could use dev packages for those not intended for final image
@@ -16,7 +15,7 @@ p11project folder is used for UV management of system python
         note: want to investigate transitioning to meson/UV or full bazel eventually... this is best for now.
 
 Project root contains eigen/matplotlib-cpp example implementation
-    once devcontainer is running we can demo:
+    once devcontainer is running we can build and run example via [in project root]:
     
         cmake -S . -B build
         cmake --build build --target example_project
