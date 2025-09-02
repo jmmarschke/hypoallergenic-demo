@@ -4,6 +4,8 @@ echo "Executing start script"
 
 git submodule update --init --recursive
 
+sudo rm -rf ./p11project/build
+
 cd p11project
 
 uv sync
