@@ -14,3 +14,10 @@ p11project folder is used for UV management of system python
     
     UV/scikit-build use CMake, can potentially be integrated with cmake for main project later
         note: want to investigate transitioning to meson/UV or full bazel eventually... this is best for now.
+
+Project root contains eigen/matplotlib-cpp example implementation
+    once devcontainer is running we can demo:
+    
+        cmake -S . -B build
+        cmake --build build --target example_project
+        ./build/example_project 
