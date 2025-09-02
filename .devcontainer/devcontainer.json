@@ -40,8 +40,8 @@
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root",
     
-    "postCreateCommand": "echo $(whoami) && sudo chown -R $(whoami) /usr/local/ && sudo chown -R $(whoami) /opt/ && sudo chmod -R u=rwx /usr/local/ && sudo chmod -R u=rwx /opt/"
-    // "postStartCommand": "bash container-start.sh"
+    "postCreateCommand": "echo $(whoami) && sudo chown -R $(whoami) /usr/local/ && sudo chown -R $(whoami) /opt/ && sudo chmod -R u=rwx /usr/local/ && sudo chmod -R u=rwx /opt/",
+    "postStartCommand": "bash container-start.sh"
 
 
 }
