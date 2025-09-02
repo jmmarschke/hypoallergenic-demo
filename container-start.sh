@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-echo "Executing start.sh"
+echo "Executing start script"
 
+cd p11project
 
+uv sync
 
-echo "Completed start.sh"
+echo "Completed start script"
