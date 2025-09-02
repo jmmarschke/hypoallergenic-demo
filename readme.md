@@ -20,3 +20,7 @@ Project root contains eigen/matplotlib-cpp example implementation
         cmake -S . -B build
         cmake --build build --target example_project
         ./build/example_project 
+
+If cloned directly into a container, unsafe errors for submodules can be muted with:
+
+    git config --local --add safe.directory "$(pwd)/external/*"
