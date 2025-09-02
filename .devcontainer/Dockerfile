@@ -2,8 +2,13 @@ FROM mcr.microsoft.com/devcontainers/cpp:1-ubuntu-24.04
 
 ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="3.31.8"
 
+ENV UV_INSTALL_DIR=/opt/uv
 ENV UV_SYSTEM_PYTHON=1
 ENV UV_PROJECT_ENVIRONMENT=/usr/
+ENV UV_TOOL_BIN_DIR=/opt/uv/bin/
+ENV UV_COMPILE_BYTECODE=1
+ENV UV_LINK_MODE=copy
+ENV UV_CACHE_DIR=/opt/uv/cache/
 
 # Optionally install the cmake for vcpkg
 COPY ./reinstall-cmake.sh /tmp/
@@ -79,3 +84,14 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get install -y gfortran \
     # Clean up
     && apt-get autoremove -y && apt-get clean -y
+
+RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates
+
+ADD https://astral.sh/uv/0.8.14/install.sh /uv-installer.sh
+
+RUN sh /uv-installer.sh && rm /uv-installer.sh
+
+RUN ln -s $UV_INSTALL_DIR/uv /usr/local/bin/uv && ln -s $UV_INSTALL_DIR/uvx /usr/local/bin/uvx
+
+RUN mkdir -p $UV_CACHE_DIR
+
