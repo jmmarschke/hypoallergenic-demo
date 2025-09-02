@@ -20,10 +20,6 @@
         "ghcr.io/devcontainers/features/github-cli:1": {
             "installDirectlyFromGitHubRelease": true,
             "version": "latest"
-        },
-        "ghcr.io/va-h/devcontainers-features/uv:1": {
-            "shellautocompletion": true,
-            "version": "latest"
         }
     },
     "remoteUser": "codespace",
@@ -44,5 +40,8 @@
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root",
     
-    "postStartCommand": "sudo bash container-start.sh"
+    "postCreateCommand": "echo $(whoami) && sudo chown -R $(whoami) /usr/local/ && sudo chown -R $(whoami) /opt/ && sudo chmod -R u=rwx /usr/local/ && sudo chmod -R u=rwx /opt/"
+    // "postStartCommand": "bash container-start.sh"
+
+
 }
