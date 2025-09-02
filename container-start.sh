@@ -2,6 +2,8 @@
 
 echo "Executing start script"
 
+git submodule update --init --recursive
+
 cd p11project
 
 uv sync
