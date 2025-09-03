@@ -95,3 +95,8 @@ RUN ln -s $UV_INSTALL_DIR/uv /usr/local/bin/uv && ln -s $UV_INSTALL_DIR/uvx /usr
 
 RUN mkdir -p $UV_CACHE_DIR
 
+# RUN apt-get update && apt-get install -y git\
+#     # Clean up
+#     && apt-get autoremove -y && apt-get clean -y
+
+# RUN git config --global --add safe.directory '*'
